@@ -1,0 +1,29 @@
+.searchBar{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.seachInput{
+    width: 660px;
+    height: 60px;
+    text-align: center;
+    font-size: 24px;
+    border: 3px #DE3A3A solid;
+    border-radius: 10px;
+    outline: none;
+}
+.searchBar label{
+    position: relative;
+}
+.searchBar label::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background-image: url('../../../assets/img/SearchIcon.png');
+    background-size: cover;
+    transform: translateY(-50%);
+}

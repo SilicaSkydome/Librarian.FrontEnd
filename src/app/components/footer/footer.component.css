@@ -1,0 +1,15 @@
+footer{
+    width: 950px;
+    height: 160px;
+    background: #E37F7F;
+    border: #E03A3A 4px solid;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    font-size: 14px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding: 10px;
+}
