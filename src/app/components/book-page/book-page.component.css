@@ -15,7 +15,7 @@
     justify-content: space-around;
     align-items: center;
 }
-.col1 img{
+.bookCover{
     width: 170px;
     height: 228px;
     border-radius: 0px 10px 10px 0;
@@ -76,4 +76,29 @@
 }
 .col2{
     flex: 3;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+}
+.viewsLikes{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.headText{
+    font-size: 24px;
+    color: #AAAAAA;
+    
+}
+.pageBreak{
+    width: 100%;
+}
+.description{
+    display: block;
+    width: 95%;
+    height: 180px;
+    border: #BCBCBC 1px solid;
 }
