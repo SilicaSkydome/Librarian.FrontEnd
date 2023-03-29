@@ -20,9 +20,9 @@
         </div>
         <div class="col2">
             <div>
-                <h2>BookName</h2>
-                <h3>AuthorName</h3>
-                <h3>CoreGenre</h3>
+                <h2>{{book?.name}}</h2>
+                <h3>{{book?.authorId}}</h3>
+                <h3>{{book?.tags}}</h3>
             </div>
             <div class="viewsLikes">
                 <img src="../../../assets/img/Views.png" alt="" width="24px" height="24px">
@@ -31,11 +31,11 @@
                 <span class="headText">0</span>
                 <div class="pageBreak"></div>
                 <img src="../../../assets/img/Tags.png" alt="" width="24px" height="24px">
-                <span class="headText">tag1,tag2,tag3</span>
+                <span class="headText">{{book?.tags}}</span>
             </div>
             <div>
                 <p class="headText">Description</p>
-                <p class="description"></p>
+                <p class="description">{{book?.description}}</p>
             </div>
         </div>
     </div>
