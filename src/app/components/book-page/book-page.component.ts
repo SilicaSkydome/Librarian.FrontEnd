@@ -19,6 +19,7 @@ export class BookPageComponent implements OnInit {
 
     this.bookService.getOne(id).subscribe(book => {
       this.book = book;
+      console.log(this.book);
     })
   }
   

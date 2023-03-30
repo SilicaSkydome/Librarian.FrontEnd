@@ -101,4 +101,8 @@
     width: 95%;
     height: 180px;
     border: #BCBCBC 1px solid;
+
+    padding: 5px;
+    font-size: 14px;
+    color: #888888;
 }
