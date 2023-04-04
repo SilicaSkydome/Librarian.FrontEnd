@@ -9,6 +9,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BookPageComponent } from './components/book-page/book-page.component';
+import { BookCardComponent } from './components/book-card/book-card.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BookPageComponent } from './components/book-page/book-page.component';
     MainPageComponent,
     SearchBarComponent,
     FooterComponent,
-    BookPageComponent
+    BookPageComponent,
+    BookCardComponent
   ],
   imports: [
     BrowserModule,
