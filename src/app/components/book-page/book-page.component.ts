@@ -22,6 +22,6 @@ export class BookPageComponent implements OnInit {
       console.log(this.book);
     })
   }
-  
+
 
 }

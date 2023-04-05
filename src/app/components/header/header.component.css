@@ -17,12 +17,22 @@
     gap: 20px;
     align-items: center;
 }
+.logo h1, img{
+  cursor: pointer;
+}
 .nav{
     flex: 2;
     display: flex;
     flex-direction: row;
     padding: 10px;
     gap: 50px;
+}
+.nav h3{
+  padding: 15px 5px;
+}
+.nav h3:hover{
+  color: #d1d1d1;
+  cursor: pointer;
 }
 .auth{
     flex: 1;

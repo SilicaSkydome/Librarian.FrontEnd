@@ -6,7 +6,9 @@
             <div class="popular case case__1">
                 <h3 class="title">Popular</h3>
                 <div class="case__content">
-                    1
+                    <app-book-card 
+                    *ngFor="let book of books"
+                    [book]="book"></app-book-card>
                 </div>
             </div>
             <div class="popular case case__2">
