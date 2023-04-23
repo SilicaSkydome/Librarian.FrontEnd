@@ -9,15 +9,26 @@ import { BooksService } from 'src/app/services/books.service';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit{
-  books: IBook[] | undefined;
+  popular: IBook[] | undefined;
+  newBooks: IBook[] | undefined;
+  updates: IBook[] | undefined;
+  bestsellers: IBook[] | undefined;
 
   constructor(private bookService: BooksService, private route: ActivatedRoute){
   }
 
   ngOnInit(): void {
-    this.bookService.getAll().subscribe(books => {
-      this.books = books;
-      console.log(this.books);
+    this.bookService.getAll("popular").subscribe(books => {
+      this.popular = books;
+    })
+    this.bookService.getAll("new").subscribe(books => {
+      this.newBooks = books;
+    })
+    this.bookService.getAll("updates").subscribe(books => {
+      this.updates = books;
+    })
+    this.bookService.getAll("bestsellers").subscribe(books => {
+      this.bestsellers = books;
     })
   }
 }

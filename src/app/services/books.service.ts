@@ -12,7 +12,10 @@ export class BooksService {
     constructor(private http: HttpClient){
     }
 
-    getAll(): Observable<IBook[]> {
+    getAll(order: string | null): Observable<IBook[]> {
+        if(order != null){
+          return this.http.get<IBook[]>('https://localhost:7243/api/Book?order='+order);
+        }
         return this.http.get<IBook[]>('https://localhost:7243/api/Book');
     }
 
