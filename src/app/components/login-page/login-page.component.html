@@ -1,31 +1,31 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <h1>Login</h1>
+  <h1>Вход</h1>
   <input
     type="text"
     name="login"
     id="login"
-    placeholder="Login"
+    placeholder="Логин"
     formControlName="login"
   />
   <span
     class="err-text"
     *ngIf="form.get('login')!.invalid && form.get('login')!.touched"
-    >Required</span
+    >Введите логин</span
   >
   <input
     type="password"
     name="password"
     id="password"
-    placeholder="Password"
+    placeholder="Пароль"
     formControlName="password"
   />
   <span
     class="err-text"
     *ngIf="form.get('password')!.invalid && form.get('password')!.touched"
-    >Required</span
+    >Пароль не должен быть короче 4-х символов</span
   >
   <button type="submit" [disabled]="form.invalid || form.disabled">
-    Login
+    Войти
   </button>
-  <p>Don't have an account? <i routerLink="/register">Register</i></p>
+  <p>Отсутствует аккаунт? <i routerLink="/register">Регистрация</i></p>
 </form>

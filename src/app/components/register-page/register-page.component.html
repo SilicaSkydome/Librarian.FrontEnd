@@ -1,1 +1,43 @@
-<p>register-page works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h1>Регистрация</h1>
+  <input
+    type="text"
+    name="login"
+    id="login"
+    placeholder="Логин"
+    formControlName="login"
+  />
+  <span
+    class="err-text"
+    *ngIf="form.get('login')!.invalid && form.get('login')!.touched"
+    >Укажите логин</span
+  >
+  <input
+    type="password"
+    name="password"
+    id="password"
+    placeholder="Пароль"
+    formControlName="password"
+  />
+  <span
+    class="err-text"
+    *ngIf="form.get('password')!.invalid && form.get('password')!.touched"
+    >Пароль не должен быть короче 4-х символов</span
+  >
+  <input
+    type="email"
+    name="email"
+    id="email"
+    placeholder="Электронная почта"
+    formControlName="email"
+  />
+  <span
+    class="err-text"
+    *ngIf="form.get('email')!.invalid && form.get('email')!.touched"
+    >Укажите адрес электронной почты</span
+  >
+  <button type="submit" [disabled]="form.invalid || form.disabled">
+    Зарегестрироваться
+  </button>
+  <p>Уже зарегестрированы? <i routerLink="/login">Войти</i></p>
+</form>

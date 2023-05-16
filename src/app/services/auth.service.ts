@@ -1,6 +1,6 @@
 import { Observable, tap } from 'rxjs';
 import { Injectable } from "@angular/core";
-import { ILogin } from "../shared/interfaces/userInterfaces";
+import { ILogin, ISignIn } from "../shared/interfaces/userInterfaces";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
@@ -13,7 +13,9 @@ export class AuthService{
   constructor(private http: HttpClient) {
   }
 
-  register(){}
+  register(registerData: ISignIn){
+    return this.http.post('https://localhost:7243/api/User', registerData);
+  }
 
   login(loginData: ILogin): Observable<{token: string}> {
     return this.http.post<{token: string}>('https://localhost:7243/api/Login', loginData)
