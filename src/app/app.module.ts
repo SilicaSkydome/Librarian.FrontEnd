@@ -13,6 +13,9 @@ import { BookPageComponent } from './components/book-page/book-page.component';
 import { BookCardComponent } from './components/book-card/book-card.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
+import { UserLibraryComponent } from './components/user-library/user-library.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { RegisterPageComponent } from './components/register-page/register-page.
     BookPageComponent,
     BookCardComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    UserPageComponent,
+    UserLibraryComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

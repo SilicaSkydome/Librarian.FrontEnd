@@ -1,7 +1,8 @@
+import { IUser } from './../shared/interfaces/userInterfaces';
 import { Observable, tap } from 'rxjs';
 import { Injectable } from "@angular/core";
 import { ILogin, ISignIn } from "../shared/interfaces/userInterfaces";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,9 @@ export class AuthService{
   private token: string | null = null;
 
   constructor(private http: HttpClient) {
+    if(localStorage.getItem('auth-token') != null){
+      this.token = localStorage.getItem('auth-token');
+    }
   }
 
   register(registerData: ISignIn){
@@ -28,6 +32,8 @@ export class AuthService{
         )
       )
   }
+
+
 
   setToken(token: string | null) {
     this.token = token;

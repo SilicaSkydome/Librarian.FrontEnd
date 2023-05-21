@@ -17,6 +17,7 @@ export class RegisterPageComponent implements OnInit {
 
   ngOnInit(){
     this.form = new FormGroup({
+      username: new FormControl(null, [Validators.required]),
       login: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required, Validators.minLength(4)]),
       email: new FormControl(null, [Validators.required, Validators.email])
@@ -35,6 +36,7 @@ export class RegisterPageComponent implements OnInit {
     this.form.disable();
 
     const registerData = {
+      username: this.form.value.username,
       login: this.form.value.login,
       password: this.form.value.password,
       email: this.form.value.email

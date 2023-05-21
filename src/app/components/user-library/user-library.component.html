@@ -1,0 +1,27 @@
+<div class="library">
+  <div class="status">
+    <div (click)="getBooks('reading')">Читаю</div>
+    <div (click)="getBooks('readLater')">Прочту позже</div>
+    <div (click)="getBooks('Dropped')">Не интересно</div>
+    <div (click)="getBooks(null)">Все</div>
+  </div>
+  <div class="booksMenu">
+    <p>Библиотека</p>
+    <div class="books">
+      <div *ngIf="library != null && library != undefined">
+        <app-book-card
+          *ngFor="let book of library"
+          [book]="book"
+        ></app-book-card>
+      </div>
+    </div>
+    <div
+      class="libraryIsEmpty"
+      *ngIf="
+        library == undefined || (library != undefined && library.length == 0)
+      "
+    >
+      <p>Ваша библиотека пуста.</p>
+    </div>
+  </div>
+</div>

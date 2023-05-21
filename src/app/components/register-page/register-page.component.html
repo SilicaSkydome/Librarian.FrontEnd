@@ -2,6 +2,18 @@
   <h1>Регистрация</h1>
   <input
     type="text"
+    name="username"
+    id="username"
+    placeholder="Имя"
+    formControlName="username"
+  />
+  <span
+    class="err-text"
+    *ngIf="form.get('username')!.invalid && form.get('username')!.touched"
+    >Укажите имя</span
+  >
+  <input
+    type="text"
     name="login"
     id="login"
     placeholder="Логин"

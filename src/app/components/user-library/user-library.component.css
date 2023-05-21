@@ -1,0 +1,65 @@
+.library {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 10px;
+  margin-bottom: 150px;
+}
+.status {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  background: #e03a3a;
+  border-radius: 10px;
+  padding: 5px;
+
+  height: 180px;
+}
+.status div {
+  background: #ab2c2c;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+
+  cursor: pointer;
+}
+.booksMenu {
+  width: 550px;
+  min-height: 800px;
+
+  background: #fff;
+  border: #de3a3a 4px solid;
+  border-radius: 15px;
+  padding: 10px;
+}
+.booksMenu p {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+
+  border-bottom: 2px black solid;
+}
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  position: relative;
+}
+.libraryIsEmpty {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.libraryIsEmpty p {
+  font-size: 34px;
+  color: #de3a3a;
+  font-weight: bold;
+}
