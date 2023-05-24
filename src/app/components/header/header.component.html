@@ -30,15 +30,18 @@
     <h3 class="login">Войти</h3>
     <img src="../../../assets/img/User.png" alt="" width="50px" height="50px" />
   </div>
-  <div
-    class="auth login"
-    [routerLink]="'/user/' + getUser().id + '/profile'"
-    *ngIf="this.auth.isAuthenticated()"
-  >
-    <h3 class="login">{{ getUser().name }}</h3>
+  <div class="auth login" *ngIf="this.auth.isAuthenticated()">
+    <h3 class="login" [routerLink]="'/user/' + getUser().id + '/profile'">
+      {{ getUser().name }}
+    </h3>
     <img [src]="getUser().avatarUrl" alt="" width="50px" height="50px" />
     <ul class="dropdown">
-      <li class="ddBtn">Редактировать профиль</li>
+      <li
+        class="ddBtn"
+        [routerLink]="'/user/' + getUser().id + '/profile/edit'"
+      >
+        Редактировать профиль
+      </li>
       <li class="ddBtn" (click)="logOut()">Выйти</li>
     </ul>
   </div>

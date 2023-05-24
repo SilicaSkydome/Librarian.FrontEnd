@@ -1,1 +1,71 @@
-<p>user-edit works!</p>
+<div class="userPage">
+  <div class="userData">
+    <div class="importantData">
+      <div class="userAvatar">
+        <img
+          [src]="user.avatarUrl"
+          alt="no img"
+          width="200"
+          height="200"
+          *ngIf="user.avatarUrl != '' && user.avatarUrl != null"
+        />
+      </div>
+      <h2>{{ user.name }}</h2>
+      <a class="email" [href]="'mailto:' + user.email" target="_blank">{{
+        user.email
+      }}</a>
+    </div>
+    <div class="elseData">
+      <p>Страна: {{ user.country }}</p>
+      <p>Дата рождения: <br />{{ user.birthDate }}</p>
+      <p>Роль: {{ user.role }}</p>
+    </div>
+  </div>
+  <div class="readerData">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <p>Ссылка на аватар:</p>
+      <input
+        type="text"
+        name="avatarUrl"
+        id="avatarUrl"
+        placeholder="Ссылка на аватар"
+        formControlName="avatarUrl"
+      />
+      <p>Имя пользователя:</p>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Имя"
+        formControlName="name"
+      />
+      <p>Страна проживания:</p>
+      <input
+        type="text"
+        name="country"
+        id="country"
+        placeholder="Страна"
+        formControlName="country"
+      />
+      <p>Дата рождения:</p>
+      <input
+        type="date"
+        name="birthDate"
+        id="birthDate"
+        placeholder="Дата рождения"
+        formControlName="birthDate"
+      />
+      <p>Описание:</p>
+      <input
+        type="text"
+        name="description"
+        id="description"
+        placeholder="Описания"
+        formControlName="description"
+      />
+      <button type="submit" [disabled]="form.invalid || form.disabled">
+        Сохранить изменения
+      </button>
+    </form>
+  </div>
+</div>

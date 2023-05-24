@@ -6,7 +6,7 @@
     <div (click)="getBooks(null)">Все</div>
   </div>
   <div class="booksMenu">
-    <p>Библиотека</p>
+    <p class="menuHeader">Библиотека</p>
     <div class="books">
       <div *ngIf="library != null && library != undefined">
         <app-book-card

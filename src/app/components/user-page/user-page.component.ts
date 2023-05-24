@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IUser } from 'src/app/shared/interfaces/userInterfaces';
 
 @Component({
   selector: 'app-user-page',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-page.component.css']
 })
 export class UserPageComponent {
-
+  user: IUser = JSON.parse(localStorage.getItem('userData')!);
 }

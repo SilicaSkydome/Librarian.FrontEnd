@@ -37,7 +37,7 @@
   border-radius: 15px;
   padding: 10px;
 }
-.booksMenu p {
+.menuHeader {
   font-size: 24px;
   font-weight: bold;
   display: block;

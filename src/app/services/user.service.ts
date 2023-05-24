@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, tap } from "rxjs";
-import { IUser } from "../shared/interfaces/userInterfaces";
+import { IUpdateUser, IUser } from "../shared/interfaces/userInterfaces";
 
 
 @Injectable({
@@ -22,11 +22,19 @@ export class UserService{
         tap(
           (data) => {
             localStorage.setItem('userData', JSON.stringify(data));
+            console.log(data);
           }
         )
       )
   }
 
+  updateUser(token: string, userData: IUpdateUser, userId: string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
 
+    return this.http.put(`https://localhost:7243/api/user/id/${userId}`, userData, { headers: headers });
+  }
 
 }

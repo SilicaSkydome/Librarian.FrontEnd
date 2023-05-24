@@ -1,0 +1,108 @@
+.userPage {
+  display: flex;
+  flex-direction: row;
+
+  gap: 10px;
+
+  margin: 10px auto 150px;
+
+  background: #fff;
+  border: #de3a3a 4px solid;
+  border-radius: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  width: 1000px;
+  min-height: 600px;
+}
+.userData {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  border-right: black 2px solid;
+}
+.importantData {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+
+  border-bottom: 2px black solid;
+
+  padding-bottom: 10px;
+}
+.email {
+  font-size: 18px;
+  color: #8f8f8f;
+  margin-top: -10px;
+  cursor: pointer;
+
+  transition: all 0.2s linear;
+
+  text-decoration: none;
+}
+.email:hover {
+  color: #b13c3c;
+}
+.userAvatar {
+  width: 200px;
+  height: 200px;
+  background: url("../../../assets/img/noAvatar.jpg");
+  background-size: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px #de3a3a solid;
+  border-radius: 10px;
+}
+.elseData {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 18px;
+  margin-left: -40px;
+}
+.readerData {
+  flex: 3;
+}
+.readerData form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+
+  padding-left: 30px;
+}
+.readerData input {
+  width: 240px;
+  height: 40px;
+
+  border: 3px solid #de3a3a;
+  border-radius: 10px;
+
+  outline: none;
+
+  padding-left: 5px;
+}
+.readerData button {
+  width: 240px;
+  height: 35px;
+  background-color: #de3a3a;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+}
+.readerData button:hover {
+  background: #b13c3c;
+}
+.readerData button:active {
+  background: #661818;
+}
+.readerData button:disabled {
+  background: gray;
+}
