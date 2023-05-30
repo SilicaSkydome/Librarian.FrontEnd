@@ -17,7 +17,7 @@
     </div>
     <div class="elseData">
       <p>Страна: {{ user.country }}</p>
-      <p>Дата рождения: <br />{{ user.birthDate }}</p>
+      <p>Дата рождения: <br />{{ user.birthDate | date : "mediumDate" }}</p>
       <p>Роль: {{ user.role }}</p>
     </div>
   </div>

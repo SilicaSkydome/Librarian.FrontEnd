@@ -1,20 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    background: #E4D1D1;
+body {
+  background: #e4d1d1;
 }
-.content{
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    min-height: 100%;
-    width: 1000px;
-    padding: 20px;
+.content {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin: 0 auto;
+  min-height: 100%;
+  width: 1000px;
+  padding: 20px;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

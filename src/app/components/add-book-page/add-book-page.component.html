@@ -1,0 +1,63 @@
+<div class="addBookPage">
+  <form class="addBookForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="col1">
+      <div class="bookCover">
+        <img
+          src="../../../assets/img/AddBookCover.png"
+          alt="no img"
+          width="280"
+          height="280"
+        />
+      </div>
+      <div class="bookTextInput">
+        <h3>Название</h3>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          formControlName="name"
+          placeholder="Название"
+        />
+        <span
+          class="err-text"
+          *ngIf="form.get('name')!.invalid && form.get('name')!.touched"
+          >Укажите адрес электронной почты</span
+        >
+      </div>
+      <div class="bookTextInput">
+        <h3>Ссылка на обложку</h3>
+        <input
+          type="text"
+          name="coverUrl"
+          id="coverUrl"
+          formControlName="coverUrl"
+          placeholder="Ссылка на обложку"
+        />
+      </div>
+    </div>
+    <div class="col2">
+      <div>
+        <h3>Жанры</h3>
+        <mat-form-field style="min-width: 400px">
+          <mat-label>Жанры</mat-label>
+          <mat-select formControlName="tags" multiple>
+            <mat-option *ngFor="let tag of tagList" [value]="tag">{{
+              tag
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <h3>Описание</h3>
+        <textarea
+          class="description"
+          name="description"
+          id="description"
+          formControlName="description"
+          placeholder="Описание"
+        ></textarea>
+      </div>
+      <button type="submit">Сохранить</button>
+    </div>
+  </form>
+</div>

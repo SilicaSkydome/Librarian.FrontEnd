@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { UserLibraryComponent } from './components/user-library/user-library.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { AddBookPageComponent } from './components/add-book-page/add-book-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -31,14 +34,18 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     RegisterPageComponent,
     UserPageComponent,
     UserLibraryComponent,
-    UserEditComponent
+    UserEditComponent,
+    AddBookPageComponent
   ],
   imports: [
+    MatSelectModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

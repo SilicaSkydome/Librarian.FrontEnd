@@ -21,4 +21,5 @@ export class HeaderComponent{
     this.auth.logOut();
     this.router.navigate(["/"]);
   }
+
 }

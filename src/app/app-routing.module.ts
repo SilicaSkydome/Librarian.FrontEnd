@@ -7,6 +7,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { UserLibraryComponent } from './components/user-library/user-library.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { AddBookPageComponent } from './components/add-book-page/add-book-page.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterPageComponent},
   {path: 'user/:id/profile', component: UserPageComponent},
   {path: 'user/:id/profile/edit', component: UserEditComponent},
-  {path: 'user/:id/library', component: UserLibraryComponent}
+  {path: 'user/:id/library', component: UserLibraryComponent},
+  {path: 'books/add', component: AddBookPageComponent}
 ];
 
 @NgModule({

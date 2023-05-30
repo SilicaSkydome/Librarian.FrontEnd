@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -29,7 +29,7 @@ export class UserEditComponent implements OnInit{
 
   onSubmit(){
     this.form.disable();
-    
+
     let updateData: IUser = JSON.parse(localStorage.getItem('userData')!);
     updateData.avatarUrl = this.form.value.avatarUrl
     updateData.name = this.form.value.name,

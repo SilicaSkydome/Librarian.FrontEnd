@@ -30,6 +30,7 @@
         id="avatarUrl"
         placeholder="Ссылка на аватар"
         formControlName="avatarUrl"
+        [defaultValue]="user.avatarUrl"
       />
       <p>Имя пользователя:</p>
       <input
@@ -38,6 +39,7 @@
         id="name"
         placeholder="Имя"
         formControlName="name"
+        [defaultValue]="user.name"
       />
       <p>Страна проживания:</p>
       <input
@@ -46,6 +48,7 @@
         id="country"
         placeholder="Страна"
         formControlName="country"
+        [defaultValue]="user.country"
       />
       <p>Дата рождения:</p>
       <input
@@ -54,6 +57,7 @@
         id="birthDate"
         placeholder="Дата рождения"
         formControlName="birthDate"
+        [defaultValue]="user.birthDate"
       />
       <p>Описание:</p>
       <input
@@ -62,6 +66,7 @@
         id="description"
         placeholder="Описания"
         formControlName="description"
+        [defaultValue]="user.description"
       />
       <button type="submit" [disabled]="form.invalid || form.disabled">
         Сохранить изменения

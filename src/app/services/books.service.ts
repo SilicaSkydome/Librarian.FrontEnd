@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IBook } from '../shared/interfaces/bookInterfaces';
+import { IBook, IBookAdd } from '../shared/interfaces/bookInterfaces';
 
 
 @Injectable({
@@ -30,5 +30,14 @@ export class BooksService {
     else{
       return this.http.get<IBook[]>('https://localhost:7243/api/userReading/id/' + userId + '/reading?status='+status);
     }
+  }
+
+  addBook(token: string, bookData: IBookAdd){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.post('https://localhost:7243/api/Book', bookData, { headers: headers });
   }
 }

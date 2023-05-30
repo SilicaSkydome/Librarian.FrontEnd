@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { IUser } from './../shared/interfaces/userInterfaces';
 import { Observable, tap } from 'rxjs';
 import { Injectable } from "@angular/core";
@@ -11,7 +12,7 @@ export class AuthService{
 
   private token: string | null = null;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     if(localStorage.getItem('auth-token') != null){
       this.token = localStorage.getItem('auth-token');
     }
@@ -47,5 +48,6 @@ export class AuthService{
   logOut(){
     this.setToken(null);
     localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

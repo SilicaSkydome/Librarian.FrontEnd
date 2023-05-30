@@ -8,3 +8,10 @@ export interface IBook {
     description: string,
     tags: string[]
 };
+export interface IBookAdd{
+  name: string,
+  coverUrl: string,
+  authorID: string,
+  tags: string[],
+  description: string
+}

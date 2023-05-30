@@ -1,0 +1,102 @@
+.addBookPage {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin: 10px auto 150px;
+
+  background: #fff;
+  border: #de3a3a 4px solid;
+  border-radius: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  width: 1000px;
+  min-height: 600px;
+
+  position: relative;
+}
+.addBookForm {
+  flex: 1;
+
+  display: flex;
+  flex-direction: row;
+}
+.col1 {
+  flex: 3;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  font-size: 24px;
+
+  gap: 15px;
+
+  border-right: 3px black solid;
+}
+.col2 {
+  flex: 4;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 24px;
+}
+.bookCover {
+  border: #de3a3a 4px solid;
+  border-radius: 10px;
+}
+.bookTextInput h3 {
+  margin-left: 10px;
+}
+input {
+  width: 280px;
+  height: 40px;
+
+  border: 3px solid #de3a3a;
+  border-radius: 10px;
+
+  outline: none;
+
+  padding-left: 5px;
+}
+.description {
+  width: 400px;
+  height: 270px;
+
+  border: 3px solid #de3a3a;
+  border-radius: 10px;
+
+  outline: none;
+
+  padding: 10px;
+  font-size: 14px;
+}
+button {
+  width: 240px;
+  height: 35px;
+  background-color: #de3a3a;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+
+  transition: all 0.2s linear;
+}
+button:hover {
+  background: #b13c3c;
+}
+button:active {
+  background: #661818;
+}
+button:disabled {
+  background: gray;
+}
+.err-text {
+  font-size: 14px;
+  color: red;
+  margin-top: -15px;
+  align-items: start;
+}
