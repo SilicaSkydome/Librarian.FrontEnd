@@ -1,108 +1,257 @@
-.book{
-    width: 100%;
-    height: 450px;
-    background: #fff;
-    border-radius: 15px;
+.book {
+  width: 100%;
+  height: 450px;
+  background: #fff;
+  border-radius: 15px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
-.col1{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+.col1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
-.bookCover{
-    width: 170px;
-    height: 228px;
-    border-radius: 0px 10px 10px 0;
+.bookCover {
+  width: 170px;
+  height: 228px;
+  border-radius: 0px 10px 10px 0;
 }
-.buttons{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 20px;
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
 }
-.buttons input{
-    width: 170px;
-    height: 40px;
+.buttons input {
+  width: 170px;
+  height: 40px;
 
-    background: #E75050;
-    color: #fff;
-    font-size: 24px;
+  background: #e75050;
+  color: #fff;
+  font-size: 24px;
 
-    border-radius: 5px;
-    border: none;
-    outline: none;
+  border-radius: 5px;
+  border: none;
+  outline: none;
 
-    transition: all .2s linear;
+  transition: all 0.2s linear;
 }
-.buttons input:hover{
-    background: #b13c3c;
+.buttons input:hover {
+  background: #b13c3c;
 }
-.buttons input:active{
-    background: #661818;
+.buttons input:active {
+  background: #661818;
 }
-.buttons select{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;;
-    width: 170px;
-    height: 40px;
+.buttons select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 170px;
+  height: 40px;
 
-    text-align: center;
-    background: #E75050;
-    color: #fff;
-    font-size: 24px;
+  text-align: center;
+  background: #e75050;
+  color: #fff;
+  font-size: 24px;
 
-    border-radius: 5px;
-    border: none;
-    outline: none;
+  border-radius: 5px;
+  border: none;
+  outline: none;
 
-    transition: all .2s linear;
+  transition: all 0.2s linear;
 }
-.buttons select:hover{
-    background: #b13c3c;
+.buttons select:hover {
+  background: #b13c3c;
 }
-.buttons select option{
-    border-radius: 10px;
+.buttons select option {
+  border-radius: 10px;
 }
-.buttons select option:hover{
-    background-color: #9e3030;
+.buttons select option:hover {
+  background-color: #9e3030;
 }
-.col2{
-    flex: 3;
+.iconBtn {
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s linear;
+}
+.iconBtn:hover {
+  background-color: #cccccc;
+}
+.col2 {
+  flex: 3;
 
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
 }
-.viewsLikes{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 5px;
+.author {
+  display: block;
+  width: 200px;
+  font-weight: 400;
+  cursor: pointer;
 }
-.headText{
-    font-size: 24px;
-    color: #AAAAAA;
-    
+.viewsLikes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
 }
-.pageBreak{
-    width: 100%;
+.headText {
+  font-size: 24px;
+  color: #aaaaaa;
 }
-.description{
-    display: block;
-    width: 95%;
-    height: 180px;
-    border: #BCBCBC 1px solid;
+.pageBreak {
+  width: 100%;
+}
+.description {
+  display: block;
+  width: 95%;
+  height: 180px;
+  border: #bcbcbc 1px solid;
 
-    padding: 5px;
-    font-size: 14px;
-    color: #888888;
+  padding: 5px;
+  font-size: 14px;
+  color: #888888;
+}
+
+.misc {
+  width: 100%;
+  min-height: 450px;
+  background: #fff;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  margin-bottom: 150px;
+  position: relative;
+}
+.tabs {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #aaaaaa;
+
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+}
+.tab {
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  font-size: 14px;
+  border: #aaaaaa 1px solid;
+  margin: 10px;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  transition: all 0.2s linear;
+
+  cursor: pointer;
+}
+.tab p {
+  margin: 0;
+}
+.tab:hover {
+  background-color: #b13c3c;
+  color: white;
+}
+.tab:active {
+  background-color: #661818;
+  color: white;
+}
+.selected {
+  border: none;
+  background-color: #de3a3a;
+  color: white;
+}
+.bookPageContent {
+  width: 100%;
+  height: 100%;
+}
+.chapterList {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.noChapters {
+  width: 100%;
+  min-height: 450px;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addChapterForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 40px;
+}
+.addChapterForm div {
+  width: 70%;
+}
+.addChapterName {
+  width: 100%;
+  height: 40px;
+
+  border: 3px solid #de3a3a;
+  border-radius: 10px;
+
+  outline: none;
+
+  padding-left: 5px;
+}
+.addChapterText {
+  width: 100%;
+  height: 840px;
+
+  border: 3px solid #de3a3a;
+  border-radius: 10px;
+
+  outline: none;
+
+  padding: 10px;
+  font-size: 14px;
+}
+button {
+  width: 340px;
+  height: 55px;
+  background-color: #de3a3a;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 24px;
+
+  transition: all 0.2s linear;
+}
+button:hover {
+  background: #b13c3c;
+}
+button:active {
+  background: #661818;
+}
+button:disabled {
+  background: gray;
+}
+.err-text {
+  font-size: 14px;
+  color: red;
+  margin-top: -15px;
+  align-items: start;
 }

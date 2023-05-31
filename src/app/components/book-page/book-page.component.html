@@ -17,6 +17,7 @@
             alt=""
             width="24px"
             height="24px"
+            class="iconBtn"
           />
           &nbsp;
           <img
@@ -24,15 +25,27 @@
             alt=""
             width="24px"
             height="24px"
+            class="iconBtn"
+          />
+          &nbsp;
+          <img
+            src="../../../assets/img/Edit.png"
+            alt=""
+            width="24px"
+            height="24px"
+            *ngIf="user?.id === author.id"
+            class="iconBtn"
           />
         </p>
       </div>
     </div>
     <div class="col2">
       <div>
-        <h2>{{ book?.name }}</h2>
-        <h3>{{ book?.authorId }}</h3>
-        <h3>{{ book?.tags }}</h3>
+        <h2>{{ book.name }}</h2>
+        <h3 class="author" [routerLink]="'/user/' + author.id + '/profile'">
+          {{ author.name }}
+        </h3>
+        <h3>{{ book.tags }}</h3>
       </div>
       <div class="viewsLikes">
         <img
@@ -56,12 +69,88 @@
           width="24px"
           height="24px"
         />
-        <span class="headText">{{ book?.tags }}</span>
+        <span class="headText">{{ book.tags }}</span>
       </div>
       <div>
         <p class="headText">Описание</p>
-        <p class="description">{{ book?.description }}</p>
+        <p class="description">{{ book.description }}</p>
       </div>
+    </div>
+  </div>
+  <div class="misc">
+    <div class="tabs">
+      <!-- prettier-ignore -->
+      <div
+        [ngClass]="{
+          'tab' : true,
+          'selected' : tab === 'comments'
+        }"
+        (click)="changeTab('comments')"
+      >
+        <p>Комментарии</p>
+      </div>
+      <!-- prettier-ignore -->
+      <div
+        (click)="changeTab('chapters')"
+        [ngClass]="{
+          'tab' : true,
+        'selected' : tab === 'chapters'
+      }"
+      >
+        <p>Оглавление</p>
+      </div>
+      <!-- prettier-ignore -->
+      <div
+        (click)="changeTab('addChapter')"
+        [ngClass]="{
+          'tab' : true,
+          'selected' : tab === 'addChapter'
+        }"
+        *ngIf="user?.id === author.id"
+      >
+        <p>Добавить главу +</p>
+      </div>
+    </div>
+    <div class="bookPageContent" *ngIf="tab === 'comments'"></div>
+    <div class="bookPageContent" *ngIf="tab === 'chapters'">
+      <div class="chapterList" *ngIf="chapters.length !== 0">
+        <app-chapter-line
+          *ngFor="let chapter of chapters; index as index"
+          [chapter]="chapter"
+          [index]="index"
+        ></app-chapter-line>
+      </div>
+      <div class="noChapters" *ngIf="chapters.length === 0">
+        <p>В данной книге пока нет ни одной главы</p>
+      </div>
+    </div>
+    <div class="bookPageContent" *ngIf="tab === 'addChapter'">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="addChapterForm">
+        <div>
+          <h2>Название главы:</h2>
+          <input
+            type="text"
+            class="addChapterName"
+            placeholder="Название"
+            formControlName="name"
+          />
+          <span
+            class="err-text"
+            *ngIf="form.get('name')!.invalid && form.get('name')!.touched"
+            >Название обязательно</span
+          >
+        </div>
+        <div>
+          <h3>Текст:</h3>
+          <textarea class="addChapterText" formControlName="text"></textarea>
+          <span
+            class="err-text"
+            *ngIf="form.get('text')!.invalid && form.get('text')!.touched"
+            >Глава не может быть пустой</span
+          >
+        </div>
+        <button type="submit">Добавить главу</button>
+      </form>
     </div>
   </div>
 </div>

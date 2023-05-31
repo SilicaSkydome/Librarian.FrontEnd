@@ -12,7 +12,7 @@ import { IUser } from 'src/app/shared/interfaces/userInterfaces';
   styleUrls: ['./add-book-page.component.css']
 })
 export class AddBookPageComponent implements OnInit{
-  form!: FormGroup
+  form!: FormGroup;
   user: IUser = JSON.parse(localStorage.getItem('userData')!);
   tagList: string[] = ['Фентези','Проза','Мистика','Фантастика','Приключения','Юмор','Поэзия','Ужасы','Триллер','ЛитРПГ','РеалРПГ','Разное','Боевик','Детектив','Роман']
 
@@ -33,7 +33,7 @@ export class AddBookPageComponent implements OnInit{
     const bookData: IBookAdd = {
       name: this.form.value.name,
       coverUrl: this.form.value.coverUrl,
-      authorID: this.user.id,
+      authorId: this.user.id,
       tags: this.form.value.tags,
       description: this.form.value.description
     }

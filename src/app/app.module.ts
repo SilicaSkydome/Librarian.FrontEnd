@@ -19,6 +19,8 @@ import { UserLibraryComponent } from './components/user-library/user-library.com
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AddBookPageComponent } from './components/add-book-page/add-book-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChapterLineComponent } from './components/chapter-line/chapter-line.component';
+import { ChapterPageComponent } from './components/chapter-page/chapter-page.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserPageComponent,
     UserLibraryComponent,
     UserEditComponent,
-    AddBookPageComponent
+    AddBookPageComponent,
+    ChapterLineComponent,
+    ChapterPageComponent
   ],
   imports: [
     MatSelectModule,

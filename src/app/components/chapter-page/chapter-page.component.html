@@ -1,0 +1,13 @@
+<div class="chapterPage">
+  <div class="chapterContent">
+    <h1>{{ chapter.name }}</h1>
+    <p>{{ chapter.text }}</p>
+  </div>
+  <div class="chapterControls">
+    <div class="controlBtn"><p><</p></div>
+    <div class="controlBtn" [routerLink]="'/books/id/' + chapter.bookId">
+      <p>&#8801;</p>
+    </div>
+    <div class="controlBtn"><p>></p></div>
+  </div>
+</div>

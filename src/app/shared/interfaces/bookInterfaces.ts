@@ -11,7 +11,7 @@ export interface IBook {
 export interface IBookAdd{
   name: string,
   coverUrl: string,
-  authorID: string,
+  authorId: string,
   tags: string[],
   description: string
 }

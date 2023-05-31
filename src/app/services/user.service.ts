@@ -11,6 +11,10 @@ export class UserService{
   constructor(private http: HttpClient){
   }
 
+  getUser(userId: string){
+    return this.http.get<IUser>(`https://localhost:7243/api/user/userId/${userId}`);
+  }
+
   getUserData(token: string, login: string): Observable<IUser>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

@@ -1,12 +1,14 @@
 <div class="card" [routerLink]="'books/id/' + book.id">
   <img
     [src]="
-      book.coverUrl !== ''
+      book.coverUrl !== '' && book.coverUrl !== null
         ? book.coverUrl
         : 'https://via.placeholder.com/120x180'
     "
     alt=""
   />
   <p class="title">{{ book.name }}</p>
-  <p class="author">{{ book.authorId }}</p>
+  <p class="author" [routerLink]="'/user/' + author?.id + '/profile'">
+    {{ author?.name }}
+  </p>
 </div>

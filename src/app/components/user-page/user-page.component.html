@@ -3,22 +3,22 @@
     <div class="importantData">
       <div class="userAvatar">
         <img
-          [src]="user.avatarUrl"
+          [src]="user?.avatarUrl"
           alt="no img"
           width="200"
           height="200"
-          *ngIf="user.avatarUrl != '' && user.avatarUrl != null"
+          *ngIf="user?.avatarUrl != '' && user?.avatarUrl != null"
         />
       </div>
-      <h2>{{ user.name }}</h2>
-      <a class="email" [href]="'mailto:' + user.email" target="_blank">{{
-        user.email
+      <h2>{{ user?.name }}</h2>
+      <a class="email" [href]="'mailto:' + user?.email" target="_blank">{{
+        user?.email
       }}</a>
     </div>
     <div class="elseData">
-      <p>Страна: {{ user.country }}</p>
-      <p>Дата рождения: <br />{{ user.birthDate | date : "mediumDate" }}</p>
-      <p>Роль: {{ user.role }}</p>
+      <p>Страна: {{ user?.country }}</p>
+      <p>Дата рождения: <br />{{ user?.birthDate | date : "mediumDate" }}</p>
+      <p>Роль: {{ user?.role }}</p>
     </div>
   </div>
   <div class="readerData"></div>

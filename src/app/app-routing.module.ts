@@ -8,6 +8,7 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import { UserLibraryComponent } from './components/user-library/user-library.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AddBookPageComponent } from './components/add-book-page/add-book-page.component';
+import { ChapterPageComponent } from './components/chapter-page/chapter-page.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'user/:id/profile', component: UserPageComponent},
   {path: 'user/:id/profile/edit', component: UserEditComponent},
   {path: 'user/:id/library', component: UserLibraryComponent},
-  {path: 'books/add', component: AddBookPageComponent}
+  {path: 'books/add', component: AddBookPageComponent},
+  {path: 'chapter/:id', component: ChapterPageComponent}
 ];
 
 @NgModule({
