@@ -26,4 +26,13 @@ export class ChapterService {
 
     return this.http.post('https://localhost:7243/api/Chapter', chapterData, { headers: headers });
   }
+
+  deleteChapter(token: string, chapterId: string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.delete('https://localhost:7243/api/Chapter/id/' + chapterId, { headers: headers });
+  }
 }

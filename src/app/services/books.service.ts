@@ -40,4 +40,13 @@ export class BooksService {
 
     return this.http.post('https://localhost:7243/api/Book', bookData, { headers: headers });
   }
+
+  deleteBook(token: string, bookId: string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.delete('https://localhost:7243/api/Book/id/' + bookId, { headers: headers });
+  }
 }

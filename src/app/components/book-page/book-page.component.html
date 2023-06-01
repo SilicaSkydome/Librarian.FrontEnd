@@ -36,6 +36,16 @@
             *ngIf="user?.id === author.id"
             class="iconBtn"
           />
+          &nbsp;
+          <img
+            src="../../../assets/img/Delete.png"
+            alt=""
+            width="24px"
+            height="24px"
+            *ngIf="user?.id === author.id"
+            class="iconBtn"
+            (click)="confirmDelete()"
+          />
         </p>
       </div>
     </div>

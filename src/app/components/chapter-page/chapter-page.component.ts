@@ -11,7 +11,8 @@ import { IChapter } from 'src/app/shared/interfaces/chapterInterfaces';
 export class ChapterPageComponent implements OnInit{
   chapter!: IChapter
 
-  constructor(private chapterService: ChapterService, private actRoute: ActivatedRoute){    
+
+  constructor(private chapterService: ChapterService, private actRoute: ActivatedRoute){
   }
 
   ngOnInit(){

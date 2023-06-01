@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IBook } from 'src/app/shared/interfaces/bookInterfaces';
 import { BooksService } from 'src/app/services/books.service';
-import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { IUser } from 'src/app/shared/interfaces/userInterfaces';
 import { IChapter, IChapterAdd } from 'src/app/shared/interfaces/chapterInterfaces';
 import { ChapterService } from 'src/app/services/chapter.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-book-page',
@@ -22,7 +26,7 @@ export class BookPageComponent implements OnInit {
   chapters: IChapter[] = [];
   form!: FormGroup;
 
-  constructor(private auth: AuthService,private userService: UserService,private bookService: BooksService, private chapterService: ChapterService ,private route: ActivatedRoute){
+  constructor(private auth: AuthService, private userService: UserService, private bookService: BooksService, private chapterService: ChapterService, private route: ActivatedRoute, private router: Router, private dialog: MatDialog){
   }
 
   ngOnInit(){
@@ -48,8 +52,26 @@ export class BookPageComponent implements OnInit {
         this.chapters = chapters;
       })
     })
+  }
 
-    
+  confirmDelete(){
+    let deleteRef = this.dialog.open(DeleteDialog, {
+      width: 'auto',
+      height: 'auto'
+    })
+    deleteRef.afterClosed().subscribe(result => {
+      if(result){
+        let token = this.auth.getToken();
+        this.bookService.deleteBook(token!, this.book.id).subscribe( {
+          next: () => {
+            this.router.navigate(['/'])
+          },
+          error: (error) => {
+            console.warn(error);
+          }
+        })
+      }
+    })
   }
 
   changeTab(tab: string){
@@ -77,4 +99,19 @@ export class BookPageComponent implements OnInit {
     })
   }
 
+}
+
+
+@Component({
+  selector: 'delete-dialog',
+  templateUrl: './delete-dialog.html',
+  standalone: true,
+  imports: [MatDialogModule, NgIf, MatButtonModule],
+})
+export class DeleteDialog {
+  constructor(public dialogRef: MatDialogRef<DeleteDialog>) {
+  }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

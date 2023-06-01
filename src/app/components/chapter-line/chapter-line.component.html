@@ -1,4 +1,19 @@
-<div class="chapterLine" [routerLink]="'/chapter/' + chapter.id">
-  <p class="chapterNumber">{{ index + 1 }}</p>
-  <p class="chapterName">{{ chapter.name }}</p>
+<div class="chapterLineComponent">
+  <div class="chapterLine" [routerLink]="'/chapter/' + chapter.id">
+    <div>
+      <p class="chapterNumber">{{ index + 1 }}</p>
+      <p class="chapterName">{{ chapter.name }}</p>
+    </div>
+  </div>
+  <div class="deleteChapter">
+    <img
+      src="../../../assets/img/Delete.png"
+      alt=""
+      width="24px"
+      height="24px"
+      *ngIf="user?.id === author.id"
+      class="iconBtn"
+      (click)="confirmDelete()"
+    />
+  </div>
 </div>
