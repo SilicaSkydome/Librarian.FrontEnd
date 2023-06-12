@@ -9,16 +9,27 @@ import { IUser } from 'src/app/shared/interfaces/userInterfaces';
   styleUrls: ['./user-library.component.css']
 })
 export class UserLibraryComponent implements OnInit{
-  library: IBook[] | undefined
+  library: IBook[] | undefined;
+  type: string = "Все";
   constructor(private bookService: BooksService){
   }
 
   public getBooks(status: string | null){
-    console.log('test');
     let user: IUser = JSON.parse(localStorage.getItem('userData')!);
     this.bookService.getUserLibrary(user.id, status).subscribe(books => {
       this.library = books;
     });
+
+    if(status == null){
+      this.type = "Все";
+    } else if(status == "reading"){
+      this.type = "Читаю";
+    } else if(status == "readLater"){
+      this.type = "Прочту позже";
+    } else if(status == "Dropped"){
+      this.type = "Брошено";
+    }
+
   }
 
   ngOnInit(): void {

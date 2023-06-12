@@ -1,0 +1,17 @@
+<div class="bookSearch">
+  <form class="bookSearchForm" [formGroup]="form" (submit)="onSubmit()">
+    <input type="text" formControlName="name" placeholder="Название" />
+    <mat-form-field style="min-width: 100%">
+      <mat-label>Жанры</mat-label>
+      <mat-select formControlName="tags" multiple>
+        <mat-option *ngFor="let tag of tagList" [value]="tag">{{
+          tag
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button type="submit">Найти</button>
+  </form>
+  <div class="bookList">
+    <app-book-line *ngFor="let book of books" [book]="book"></app-book-line>
+  </div>
+</div>

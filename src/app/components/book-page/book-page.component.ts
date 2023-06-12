@@ -11,6 +11,7 @@ import { IUser } from 'src/app/shared/interfaces/userInterfaces';
 import { IChapter, IChapterAdd } from 'src/app/shared/interfaces/chapterInterfaces';
 import { ChapterService } from 'src/app/services/chapter.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { LibraryService } from 'src/app/services/library.service';
 
 
 @Component({
@@ -26,7 +27,14 @@ export class BookPageComponent implements OnInit {
   chapters: IChapter[] = [];
   form!: FormGroup;
 
-  constructor(private auth: AuthService, private userService: UserService, private bookService: BooksService, private chapterService: ChapterService, private route: ActivatedRoute, private router: Router, private dialog: MatDialog){
+  constructor(private auth: AuthService,
+    private userService: UserService,
+    private bookService: BooksService,
+    private chapterService: ChapterService,
+    private library: LibraryService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private dialog: MatDialog){
   }
 
   ngOnInit(){
@@ -52,6 +60,25 @@ export class BookPageComponent implements OnInit {
         this.chapters = chapters;
       })
     })
+  }
+
+  libraryControl(value: string){
+    let token = this.auth.getToken();
+    let libraryStats = {
+      bookId: this.book.id,
+      readerId: this.user!.id,
+      status: value
+    }
+    console.log(libraryStats);
+    this.library.addToLibrary(token, libraryStats).subscribe({
+      next: () => {
+
+      },
+      error: (error) => {
+        console.warn(error);
+        this.form.enable();
+      }
+    });
   }
 
   confirmDelete(){

@@ -2,14 +2,29 @@
   <app-search-bar></app-search-bar>
   <div class="book">
     <div class="col1">
-      <img src="https://via.placeholder.com/170x228" alt="" class="bookCover" />
+      <img
+        [src]="
+          book.coverUrl !== '' && book.coverUrl !== null
+            ? book.coverUrl
+            : 'https://via.placeholder.com/170x228'
+        "
+        alt=""
+        width="170px"
+        height="228px"
+        class="bookCover"
+      />
       <div class="buttons">
         <input type="button" value="Читать" />
-        <select name="bookStatus">
+        <select
+          name="bookStatus"
+          #library
+          (change)="libraryControl(library.value)"
+          [disabled]="user == undefined"
+        >
+          <option>Сохранить</option>
           <option value="Reading">Читаю</option>
           <option value="ReadLater">Прочту позже</option>
           <option value="Dropped">Не интересно</option>
-          <option value="Remove">Удалить</option>
         </select>
         <p>
           <img

@@ -1,0 +1,20 @@
+<div class="bookLine" [routerLink]="'id/' + book.id">
+  <div class="cover">
+    <img
+      [src]="
+        book.coverUrl !== '' && book.coverUrl !== null
+          ? book.coverUrl
+          : 'https://via.placeholder.com/120x180'
+      "
+      alt=""
+      width="120px"
+      height="180px"
+    />
+  </div>
+  <div class="bookInfo">
+    <h2 class="bookName">{{ book.name }}</h2>
+    <h3 class="bookAuthor">{{ author.name }}</h3>
+    <h4 class="bookTags">{{ book.tags }}</h4>
+    <p class="description">{{ book.description }}</p>
+  </div>
+</div>

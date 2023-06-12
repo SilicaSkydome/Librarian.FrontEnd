@@ -13,6 +13,8 @@ export class MainPageComponent implements OnInit{
   newBooks: IBook[] | undefined;
   updates: IBook[] | undefined;
   bestsellers: IBook[] | undefined;
+  tagList: string[] = ['Фентези','Проза','Мистика','Фантастика','Приключения','Юмор','Поэзия','Ужасы','Триллер','ЛитРПГ','РеалРПГ','Разное','Боевик','Детектив','Роман']
+
 
   constructor(private bookService: BooksService, private route: ActivatedRoute){
   }

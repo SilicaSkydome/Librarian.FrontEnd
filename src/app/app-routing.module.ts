@@ -9,10 +9,12 @@ import { UserLibraryComponent } from './components/user-library/user-library.com
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AddBookPageComponent } from './components/add-book-page/add-book-page.component';
 import { ChapterPageComponent } from './components/chapter-page/chapter-page.component';
+import { BookSearchComponent } from './components/book-search/book-search.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
   {path: 'books/id/:id', component: BookPageComponent},
+  {path: 'books', component: BookSearchComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
   {path: 'user/:id/profile', component: UserPageComponent},

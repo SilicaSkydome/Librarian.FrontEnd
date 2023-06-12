@@ -44,3 +44,21 @@
 .title {
   color: #aaaaaa;
 }
+.case__5 {
+  margin-bottom: 150px;
+}
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.tag {
+  transition: all 0.2s linear;
+  color: rgb(70, 70, 70);
+}
+.tag:hover {
+  color: #e03a3a;
+  text-shadow: 0 0 1px #e03a3a;
+  cursor: pointer;
+}

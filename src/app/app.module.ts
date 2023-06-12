@@ -23,6 +23,8 @@ import { AddBookPageComponent } from './components/add-book-page/add-book-page.c
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChapterLineComponent } from './components/chapter-line/chapter-line.component';
 import { ChapterPageComponent } from './components/chapter-page/chapter-page.component';
+import { BookSearchComponent } from './components/book-search/book-search.component';
+import { BookLineComponent } from './components/book-line/book-line.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { ChapterPageComponent } from './components/chapter-page/chapter-page.com
     UserEditComponent,
     AddBookPageComponent,
     ChapterLineComponent,
-    ChapterPageComponent
+    ChapterPageComponent,
+    BookSearchComponent,
+    BookLineComponent
   ],
   imports: [
     MatSelectModule,
