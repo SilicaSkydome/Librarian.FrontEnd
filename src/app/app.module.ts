@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button'
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +49,7 @@ import { BookLineComponent } from './components/book-line/book-line.component';
     BookLineComponent
   ],
   imports: [
+    MatPaginatorModule,
     MatSelectModule,
     MatDialogModule,
     MatButtonModule,

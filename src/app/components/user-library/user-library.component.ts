@@ -27,7 +27,7 @@ export class UserLibraryComponent implements OnInit{
     } else if(status == "readLater"){
       this.type = "Прочту позже";
     } else if(status == "Dropped"){
-      this.type = "Брошено";
+      this.type = "Не интересно";
     }
 
   }

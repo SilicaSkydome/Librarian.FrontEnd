@@ -1,7 +1,7 @@
-<div class="chapterPage">
+<div class="chapterPage" *ngIf="chapter != undefined && chapter != null">
   <div class="chapterContent">
     <h1>{{ chapter.name }}</h1>
-    <p>{{ chapter.text }}</p>
+    <div [innerHTML]="chapter.text" class="text"></div>
   </div>
   <div class="chapterControls">
     <div class="controlBtn"><p><</p></div>
@@ -10,4 +10,7 @@
     </div>
     <div class="controlBtn"><p>></p></div>
   </div>
+</div>
+<div class="chapterPage" *ngIf="chapter == undefined || chapter == null">
+  <h1 class="notFound">404 Not Found</h1>
 </div>

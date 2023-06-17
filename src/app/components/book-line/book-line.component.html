@@ -1,4 +1,8 @@
-<div class="bookLine" [routerLink]="'id/' + book.id">
+<div
+  class="bookLine"
+  [routerLink]="'id/' + book.id"
+  *ngIf="book != null && book != undefined"
+>
   <div class="cover">
     <img
       [src]="
@@ -13,7 +17,9 @@
   </div>
   <div class="bookInfo">
     <h2 class="bookName">{{ book.name }}</h2>
-    <h3 class="bookAuthor">{{ author.name }}</h3>
+    <h3 class="bookAuthor" *ngIf="author != null && author != undefined">
+      {{ author.name }}
+    </h3>
     <h4 class="bookTags">{{ book.tags }}</h4>
     <p class="description">{{ book.description }}</p>
   </div>

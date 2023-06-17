@@ -9,6 +9,8 @@
   justify-content: space-between;
 
   margin: 20px auto;
+
+  position: relative;
 }
 .chapterContent {
   width: 1000px;
@@ -21,9 +23,11 @@ h1 {
   align-self: center;
   padding: 20px;
 }
-p {
+.text {
   width: 100%;
   padding: 20px;
+
+  text-align: justify;
 }
 .chapterControls {
   width: 100%;
@@ -61,4 +65,10 @@ p {
   margin: 0;
   padding: 0;
   text-align: center;
+}
+.notFound {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #e75050;
 }

@@ -1,5 +1,5 @@
 <div class="bookSearch">
-  <form class="bookSearchForm" [formGroup]="form" (submit)="onSubmit()">
+  <form class="bookSearchForm" [formGroup]="form" (submit)="this.onSubmit()">
     <input type="text" formControlName="name" placeholder="Название" />
     <mat-form-field style="min-width: 100%">
       <mat-label>Жанры</mat-label>
@@ -11,7 +11,30 @@
     </mat-form-field>
     <button type="submit">Найти</button>
   </form>
-  <div class="bookList">
+  <div class="bookList" *ngIf="books != []">
     <app-book-line *ngFor="let book of books" [book]="book"></app-book-line>
   </div>
+  <mat-paginator
+    *ngIf="length > 10"
+    class="paginator"
+    (page)="pageEvent($event)"
+    [length]="length"
+    [pageSize]="10"
+    showFirstLastButtons="true"
+    hidePageSize="true"
+    [pageIndex]="pageIndex"
+    aria-label="Select page"
+  ></mat-paginator>
+  <mat-paginator
+    *ngIf="length <= 10"
+    class="paginator"
+    disabled="true"
+    (page)="pageEvent($event)"
+    [length]="length"
+    [pageSize]="10"
+    showFirstLastButtons="true"
+    hidePageSize="true"
+    [pageIndex]="pageIndex"
+    aria-label="Select page"
+  ></mat-paginator>
 </div>

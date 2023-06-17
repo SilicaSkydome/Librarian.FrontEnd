@@ -109,7 +109,7 @@ export class BookPageComponent implements OnInit {
     const chapterData: IChapterAdd = {
       bookId: this.book.id,
       name: this.form.value.name,
-      text: this.form.value.text
+      text: this.form.value.text.replace(/\n/g, '<br>')
     };
 
     let token = this.auth.getToken();

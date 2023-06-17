@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PageEvent } from '@angular/material/paginator';
 import { BooksService } from 'src/app/services/books.service';
 import { IBook } from 'src/app/shared/interfaces/bookInterfaces';
 
@@ -10,8 +11,15 @@ import { IBook } from 'src/app/shared/interfaces/bookInterfaces';
 })
 export class BookSearchComponent implements OnInit{
   form!: FormGroup;
-  books: IBook[] | null = [];
+  books: IBook[] = [];
   tagList: string[] = ['Фентези','Проза','Мистика','Фантастика','Приключения','Юмор','Поэзия','Ужасы','Триллер','ЛитРПГ','РеалРПГ','Разное','Боевик','Детектив','Роман']
+
+  length: number = 0;
+  pageIndex: number = 0;
+
+  page: number = 1;
+  name: string = '';
+  tags: string[] = [];
 
   constructor(private bookService: BooksService){}
 
@@ -21,12 +29,27 @@ export class BookSearchComponent implements OnInit{
       tags: new FormControl()
     });
 
-    this.onSubmit();
+    this.bookService.searchCount(this.name, this.tags).subscribe(length => {
+      this.length = length;
+    })
+
+    this.search();
   }
 
   onSubmit(){
-    this.bookService.getAll(null).subscribe(books => {
+    this.name = this.form.value.name;
+    this.tags = this.form.value.tags;
+
+    console.log(this.tags);
+    this.search();
+  }
+  pageEvent(e: PageEvent){
+  this.pageIndex = e.pageIndex + 1;
+    this.search();
+  }
+  search(){
+    this.bookService.search(this.page, this.name, this.tags).subscribe(books => {
       this.books = books;
-    })
+    });
   }
 }
