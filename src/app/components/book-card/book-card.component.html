@@ -10,7 +10,11 @@
     height="180px"
   />
   <p class="title">{{ book.name }}</p>
-  <p class="author" [routerLink]="'/user/' + author?.id + '/profile'">
+  <p
+    *ngIf="author != undefined"
+    class="author"
+    [routerLink]="'/user/' + author?.id + '/profile'"
+  >
     {{ author?.name }}
   </p>
 </div>

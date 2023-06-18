@@ -56,3 +56,10 @@
   text-shadow: 0 0 1px #e03a3a;
   cursor: pointer;
 }
+.misc {
+  width: 180px;
+}
+.misc .case__content {
+  flex-wrap: wrap;
+  align-items: center;
+}

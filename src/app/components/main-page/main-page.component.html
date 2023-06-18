@@ -24,7 +24,12 @@
       <div class="popular case case__3">
         <h3 class="title">Жанры</h3>
         <div class="case__content tags">
-          <span class="tag" *ngFor="let tag of tagList">{{ tag }}</span>
+          <span
+            class="tag"
+            *ngFor="let tag of tagList"
+            (click)="tagSearch($event)"
+            >{{ tag }}</span
+          >
         </div>
       </div>
       <div class="popular case case__4">
@@ -53,7 +58,12 @@
     <div class="col2">
       <div class="misc case">
         <h3 class="title">Разное</h3>
-        <div class="case__content">1</div>
+        <div class="case__content">
+          <app-book-card
+            *ngFor="let book of misc"
+            [book]="book"
+          ></app-book-card>
+        </div>
       </div>
     </div>
   </div>

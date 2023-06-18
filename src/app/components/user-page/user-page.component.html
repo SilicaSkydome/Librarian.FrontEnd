@@ -21,5 +21,18 @@
       <p>Роль: {{ user?.role }}</p>
     </div>
   </div>
-  <div class="readerData"></div>
+  <div class="activity">
+    <div class="writer">
+      <p>Написанные книги:</p>
+      <div class="case__content" *ngIf="writing != undefined">
+        <app-book-card
+          *ngFor="let book of writing"
+          [book]="book"
+        ></app-book-card>
+      </div>
+    </div>
+    <div class="reader">
+      <p>Последние комментарии:</p>
+    </div>
+  </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="content">
   <app-search-bar></app-search-bar>
-  <div class="book">
+  <div class="book" *ngIf="book != undefined">
     <div class="col1">
       <img
         [src]="
@@ -131,14 +131,17 @@
           'tab' : true,
           'selected' : tab === 'addChapter'
         }"
-        *ngIf="user?.id === author.id"
+        *ngIf="user != undefined && user?.id == author.id"
       >
         <p>Добавить главу +</p>
       </div>
     </div>
     <div class="bookPageContent" *ngIf="tab === 'comments'"></div>
     <div class="bookPageContent" *ngIf="tab === 'chapters'">
-      <div class="chapterList" *ngIf="chapters.length !== 0">
+      <div
+        class="chapterList"
+        *ngIf="chapters.length != 0 && chapters != undefined"
+      >
         <app-chapter-line
           *ngFor="let chapter of chapters; index as index"
           [chapter]="chapter"

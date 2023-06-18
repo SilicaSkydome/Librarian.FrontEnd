@@ -1,10 +1,11 @@
-<div class="searchBar">
+<form class="searchBar" [formGroup]="form" (ngSubmit)="onSubmit()">
   <label>
     <input
       type="text"
       name="searchBar"
       placeholder="Поиск"
       class="seachInput"
+      formControlName="name"
     />
   </label>
-</div>
+</form>
