@@ -1,0 +1,54 @@
+.review {
+  flex: 1;
+  position: relative;
+  min-height: 120px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 10px 20px;
+
+  border: 2px solid lightgray;
+}
+.avatar {
+  box-sizing: border-box;
+  width: 120px;
+  height: 120px;
+  padding: 20px;
+
+  border: 2px solid lightgray;
+  cursor: pointer;
+}
+.text {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  margin: 10px 0;
+  cursor: pointer;
+}
+.textArea {
+  margin-bottom: 15px;
+  margin-right: 10px;
+  text-align: justify;
+}
+.deleteButton {
+  position: absolute;
+
+  width: 30px;
+  height: 30px;
+  border: 2px solid #de3a3a;
+  border-radius: 5px;
+
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+.deleteButton:hover {
+  background-color: #de3a3a;
+}

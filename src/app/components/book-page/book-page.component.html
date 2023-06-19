@@ -136,7 +136,51 @@
         <p>Добавить главу +</p>
       </div>
     </div>
-    <div class="bookPageContent" *ngIf="tab === 'comments'"></div>
+    <div class="bookPageContent" *ngIf="tab === 'comments'">
+      <form
+        [formGroup]="reviewsForm"
+        (ngSubmit)="addReview()"
+        class="reviewsForm"
+      >
+        <input
+          formControlName="reviewText"
+          placeholder="Введите комментарий"
+          class="reviewInput"
+        />
+        <button type="submit" class="submitButton reviewButton">
+          Отправить
+        </button>
+      </form>
+      <div class="reviewsList" *ngIf="reviews != undefined">
+        <app-review-line
+          *ngFor="let review of reviews"
+          [review]="review"
+        ></app-review-line>
+      </div>
+      <mat-paginator
+        *ngIf="reviwsCount > 10"
+        class="paginator"
+        (page)="pageEvent($event)"
+        [length]="reviwsCount"
+        [pageSize]="10"
+        showFirstLastButtons="true"
+        hidePageSize="true"
+        [pageIndex]="pageIndex"
+        aria-label="Select page"
+      ></mat-paginator>
+      <mat-paginator
+        *ngIf="reviwsCount <= 10"
+        class="paginator"
+        disabled="true"
+        (page)="pageEvent($event)"
+        [length]="reviwsCount"
+        [pageSize]="10"
+        showFirstLastButtons="true"
+        hidePageSize="true"
+        [pageIndex]="pageIndex"
+        aria-label="Select page"
+      ></mat-paginator>
+    </div>
     <div class="bookPageContent" *ngIf="tab === 'chapters'">
       <div
         class="chapterList"
@@ -177,7 +221,7 @@
             >Глава не может быть пустой</span
           >
         </div>
-        <button type="submit">Добавить главу</button>
+        <button type="submit" class="submitButton">Добавить главу</button>
       </form>
     </div>
   </div>

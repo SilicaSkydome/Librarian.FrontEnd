@@ -1,0 +1,27 @@
+<div class="review" *ngIf="author != undefined">
+  <img
+    [src]="author.avatarUrl"
+    alt="noImg"
+    class="avatar"
+    width="80"
+    height="80"
+    [routerLink]="'/user/' + author.id + '/profile'"
+  />
+  <div class="text">
+    <h3 class="name" [routerLink]="'/user/' + author.id + '/profile'">
+      {{ author.name }}
+    </h3>
+    <p class="textArea">{{ review.text }}</p>
+  </div>
+  <div class="deleteButton">
+    <img
+      src="../../../assets/img/Delete.png"
+      alt=""
+      width="24px"
+      height="24px"
+      *ngIf="user != undefined && user?.id === author.id"
+      class="iconBtn"
+      (click)="confirmDelete()"
+    />
+  </div>
+</div>

@@ -26,6 +26,7 @@ import { ChapterLineComponent } from './components/chapter-line/chapter-line.com
 import { ChapterPageComponent } from './components/chapter-page/chapter-page.component';
 import { BookSearchComponent } from './components/book-search/book-search.component';
 import { BookLineComponent } from './components/book-line/book-line.component';
+import { ReviewLineComponent } from './components/review-line/review-line.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { BookLineComponent } from './components/book-line/book-line.component';
     ChapterLineComponent,
     ChapterPageComponent,
     BookSearchComponent,
-    BookLineComponent
+    BookLineComponent,
+    ReviewLineComponent
   ],
   imports: [
     MatPaginatorModule,

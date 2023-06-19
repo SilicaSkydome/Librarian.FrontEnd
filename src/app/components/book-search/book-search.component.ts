@@ -34,7 +34,6 @@ export class BookSearchComponent implements OnInit {
   length: number = 0;
   pageIndex: number = 0;
 
-  page: number = 1;
   name: string = '';
   tags: string[] = [];
 
@@ -80,7 +79,7 @@ export class BookSearchComponent implements OnInit {
   }
   search() {
     this.bookService
-      .search(this.page, this.name, this.tags)
+      .search(this.pageIndex, this.name, this.tags)
       .subscribe((books) => {
         this.books = books;
       });
