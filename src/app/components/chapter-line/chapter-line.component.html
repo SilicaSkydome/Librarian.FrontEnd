@@ -1,4 +1,4 @@
-<div class="chapterLineComponent">
+<div class="chapterLineComponent" *ngIf="chapter != undefined">
   <div class="chapterLine" [routerLink]="'/chapter/' + chapter.id">
     <div>
       <p class="chapterNumber">{{ index + 1 }}</p>

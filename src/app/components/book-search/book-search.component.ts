@@ -33,6 +33,7 @@ export class BookSearchComponent implements OnInit {
 
   length: number = 0;
   pageIndex: number = 0;
+  page: number = 1;
 
   name: string = '';
   tags: string[] = [];
@@ -74,12 +75,13 @@ export class BookSearchComponent implements OnInit {
     this.search();
   }
   pageEvent(e: PageEvent) {
-    this.pageIndex = e.pageIndex + 1;
+    this.pageIndex = e.pageIndex;
+    this.page = e.pageIndex + 1;
     this.search();
   }
   search() {
     this.bookService
-      .search(this.pageIndex, this.name, this.tags)
+      .search(this.page, this.name, this.tags)
       .subscribe((books) => {
         this.books = books;
       });

@@ -89,6 +89,7 @@
   gap: 10px;
 
   transition: all 0.2s linear;
+  z-index: 10;
 }
 .login h3 {
   min-width: 150px;

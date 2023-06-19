@@ -1,5 +1,8 @@
 <div class="content">
   <app-search-bar></app-search-bar>
+  <div class="book undefined" *ngIf="book == undefined">
+    <mat-spinner color="warn"></mat-spinner>
+  </div>
   <div class="book" *ngIf="book != undefined">
     <div class="col1">
       <img
@@ -14,7 +17,12 @@
         class="bookCover"
       />
       <div class="buttons">
-        <input type="button" value="Читать" />
+        <input
+          type="button"
+          value="Читать"
+          [disabled]="chapters == undefined || chapters.length < 1"
+          (click)="read()"
+        />
         <select
           name="bookStatus"
           #library
@@ -102,7 +110,7 @@
       </div>
     </div>
   </div>
-  <div class="misc">
+  <div class="misc" *ngIf="book != undefined">
     <div class="tabs">
       <!-- prettier-ignore -->
       <div
@@ -151,6 +159,9 @@
           Отправить
         </button>
       </form>
+      <div class="reviewsList undefined" *ngIf="reviews == undefined">
+        <mat-spinner color="warn"></mat-spinner>
+      </div>
       <div class="reviewsList" *ngIf="reviews != undefined">
         <app-review-line
           *ngFor="let review of reviews"
@@ -182,6 +193,9 @@
       ></mat-paginator>
     </div>
     <div class="bookPageContent" *ngIf="tab === 'chapters'">
+      <div class="chapterList undefined" *ngIf="chapters == undefined">
+        <mat-spinner color="warn"></mat-spinner>
+      </div>
       <div
         class="chapterList"
         *ngIf="chapters.length != 0 && chapters != undefined"

@@ -29,7 +29,7 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./book-page.component.css'],
 })
 export class BookPageComponent implements OnInit {
-  book!: IBook;
+  book: IBook | undefined;
   user: IUser | undefined;
   author!: IUser;
   tab: string = 'comments';
@@ -90,10 +90,14 @@ export class BookPageComponent implements OnInit {
     });
   }
 
+  read() {
+    this.router.navigate([`/chapter/${this.chapters[0].id}`]);
+  }
+
   libraryControl(value: string) {
     let token = this.auth.getToken();
     let libraryStats = {
-      bookId: this.book.id,
+      bookId: this.book!.id,
       readerId: this.user!.id,
       status: value,
     };
@@ -115,7 +119,7 @@ export class BookPageComponent implements OnInit {
     deleteRef.afterClosed().subscribe((result) => {
       if (result) {
         let token = this.auth.getToken();
-        this.bookService.deleteBook(token!, this.book.id).subscribe({
+        this.bookService.deleteBook(token!, this.book!.id).subscribe({
           next: () => {
             this.router.navigate(['/']);
           },
@@ -136,7 +140,7 @@ export class BookPageComponent implements OnInit {
     if (token) {
       const reviewData: IReviewAdd = {
         authorId: this.user!.id,
-        bookId: this.book.id,
+        bookId: this.book!.id,
         text: this.reviewsForm.value.reviewText,
       };
       this.reviewService.addReview(token, reviewData).subscribe({
@@ -156,14 +160,14 @@ export class BookPageComponent implements OnInit {
     this.pageIndex = e.pageIndex + 1;
 
     this.reviewService
-      .getReviews(e.pageIndex + 1, this.book.id)
+      .getReviews(e.pageIndex + 1, this.book!.id)
       .subscribe((reviews) => {
         this.reviews = reviews;
       });
   }
   onSubmit() {
     const chapterData: IChapterAdd = {
-      bookId: this.book.id,
+      bookId: this.book!.id,
       name: this.form.value.name,
       text: this.form.value.text.replace(/\n/g, '<br>'),
     };

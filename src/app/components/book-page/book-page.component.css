@@ -8,6 +8,11 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+.undefined {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .col1 {
   flex: 1;
   display: flex;

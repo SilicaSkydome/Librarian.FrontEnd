@@ -1,53 +1,49 @@
 import { Router } from '@angular/router';
 import { IUser } from './../shared/interfaces/userInterfaces';
 import { Observable, tap } from 'rxjs';
-import { Injectable } from "@angular/core";
-import { ILogin, ISignIn } from "../shared/interfaces/userInterfaces";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { ILogin, ISignIn } from '../shared/interfaces/userInterfaces';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AuthService{
-
+export class AuthService {
   private token: string | null = null;
 
   constructor(private http: HttpClient, private router: Router) {
-    if(localStorage.getItem('auth-token') != null){
+    if (localStorage.getItem('auth-token') != null) {
       this.token = localStorage.getItem('auth-token');
     }
   }
 
-  register(registerData: ISignIn){
+  register(registerData: ISignIn) {
     return this.http.post('https://localhost:7243/api/User', registerData);
   }
 
-  login(loginData: ILogin): Observable<{token: string}> {
-    return this.http.post<{token: string}>('https://localhost:7243/api/Login', loginData)
+  login(loginData: ILogin): Observable<{ token: string }> {
+    return this.http
+      .post<{ token: string }>('https://localhost:7243/api/Login', loginData)
       .pipe(
-        tap(
-          ({token}) => {
-            localStorage.setItem('auth-token', token);
-            this.setToken(token);
-          }
-        )
-      )
+        tap(({ token }) => {
+          localStorage.setItem('auth-token', token);
+          this.setToken(token);
+        })
+      );
   }
-
-
 
   setToken(token: string | null) {
     this.token = token;
   }
-  getToken(): string | null{
+  getToken(): string | null {
     return this.token;
   }
-  isAuthenticated(): boolean{
+  isAuthenticated(): boolean {
     return !!this.token;
   }
-  logOut(){
+  logOut() {
     this.setToken(null);
     localStorage.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 }

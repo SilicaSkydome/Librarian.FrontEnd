@@ -6,14 +6,14 @@
   gap: 10px;
 }
 .col1 {
-  flex: 5;
+  width: 770px;
 
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 .col2 {
-  flex: 2;
+  width: 180px;
   height: 100%;
 }
 .case {
@@ -23,8 +23,11 @@
   padding: 10px;
 }
 .case__content {
+  height: 300px;
+  padding-top: 20px;
   display: flex;
   flex-direction: row;
+  overflow-x: scroll;
 }
 .bookCase {
   background: #e03a3a;
@@ -46,6 +49,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 5px;
+  height: 65px;
+  overflow: auto;
 }
 .tag {
   transition: all 0.2s linear;
@@ -58,6 +63,10 @@
 }
 .misc {
   width: 180px;
+}
+.miscCase {
+  height: auto;
+  overflow: auto;
 }
 .misc .case__content {
   flex-wrap: wrap;

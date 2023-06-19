@@ -5,7 +5,12 @@
     <div class="col1">
       <div class="popular case case__1">
         <h3 class="title">Популярное</h3>
-        <div class="case__content">
+        <mat-spinner
+          class="case__content"
+          *ngIf="popular == undefined"
+          color="warn"
+        ></mat-spinner>
+        <div class="case__content" *ngIf="popular != undefined">
           <app-book-card
             *ngFor="let book of popular"
             [book]="book"
@@ -14,7 +19,12 @@
       </div>
       <div class="popular case case__2">
         <h3 class="title">Новое</h3>
-        <div class="case__content">
+        <mat-spinner
+          class="case__content"
+          *ngIf="newBooks == undefined"
+          color="warn"
+        ></mat-spinner>
+        <div class="case__content" *ngIf="newBooks != undefined">
           <app-book-card
             *ngFor="let book of newBooks"
             [book]="book"
@@ -34,31 +44,42 @@
       </div>
       <div class="popular case case__4">
         <h3 class="title">Обновления</h3>
-        <div class="case__content">
-          <div class="case__content">
-            <app-book-card
-              *ngFor="let book of updates"
-              [book]="book"
-            ></app-book-card>
-          </div>
+        <mat-spinner
+          class="case__content"
+          *ngIf="updates == undefined"
+          color="warn"
+        ></mat-spinner>
+        <div class="case__content" *ngIf="updates != undefined">
+          <app-book-card
+            *ngFor="let book of updates"
+            [book]="book"
+          ></app-book-card>
         </div>
       </div>
       <div class="popular case case__5">
         <h3 class="title">Бестселлеры</h3>
-        <div class="case__content">
-          <div class="case__content">
-            <app-book-card
-              *ngFor="let book of bestsellers"
-              [book]="book"
-            ></app-book-card>
-          </div>
+        <mat-spinner
+          class="case__content"
+          *ngIf="bestsellers == undefined"
+          color="warn"
+        ></mat-spinner>
+        <div class="case__content" *ngIf="bestsellers != undefined">
+          <app-book-card
+            *ngFor="let book of bestsellers"
+            [book]="book"
+          ></app-book-card>
         </div>
       </div>
     </div>
     <div class="col2">
       <div class="misc case">
         <h3 class="title">Разное</h3>
-        <div class="case__content">
+        <mat-spinner
+          class="case__content"
+          *ngIf="misc == undefined"
+          color="warn"
+        ></mat-spinner>
+        <div class="case__content miscCase" *ngIf="misc != undefined">
           <app-book-card
             *ngFor="let book of misc"
             [book]="book"

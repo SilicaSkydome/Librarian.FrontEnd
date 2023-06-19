@@ -1,4 +1,7 @@
-<div class="userPage">
+<div class="userPage undefined" *ngIf="user == undefined">
+  <mat-spinner color="warn"></mat-spinner>
+</div>
+<div class="userPage" *ngIf="user != undefined">
   <div class="userData">
     <div class="importantData">
       <div class="userAvatar">

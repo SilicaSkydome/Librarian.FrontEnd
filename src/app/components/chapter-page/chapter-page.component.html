@@ -4,13 +4,13 @@
     <div [innerHTML]="chapter.text" class="text"></div>
   </div>
   <div class="chapterControls">
-    <div class="controlBtn"><p><</p></div>
+    <div class="controlBtn" (click)="getPrevChap()"><p><</p></div>
     <div class="controlBtn" [routerLink]="'/books/id/' + chapter.bookId">
       <p>&#8801;</p>
     </div>
-    <div class="controlBtn"><p>></p></div>
+    <div class="controlBtn" (click)="getNextChap()"><p>></p></div>
   </div>
 </div>
 <div class="chapterPage" *ngIf="chapter == undefined || chapter == null">
-  <h1 class="notFound">404 Not Found</h1>
+  <mat-spinner color="warn"></mat-spinner>
 </div>

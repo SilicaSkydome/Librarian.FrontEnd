@@ -9,25 +9,44 @@ import { IUser } from 'src/app/shared/interfaces/userInterfaces';
 @Component({
   selector: 'app-add-book-page',
   templateUrl: './add-book-page.component.html',
-  styleUrls: ['./add-book-page.component.css']
+  styleUrls: ['./add-book-page.component.css'],
 })
-export class AddBookPageComponent implements OnInit{
+export class AddBookPageComponent implements OnInit {
   form!: FormGroup;
   user: IUser = JSON.parse(localStorage.getItem('userData')!);
-  tagList: string[] = ['Фентези','Проза','Мистика','Фантастика','Приключения','Юмор','Поэзия','Ужасы','Триллер','ЛитРПГ','РеалРПГ','Разное','Боевик','Детектив','Роман']
+  tagList: string[] = [
+    'Фентези',
+    'Проза',
+    'Мистика',
+    'Фантастика',
+    'Приключения',
+    'Юмор',
+    'Поэзия',
+    'Ужасы',
+    'Триллер',
+    'ЛитРПГ',
+    'РеалРПГ',
+    'Разное',
+    'Боевик',
+    'Детектив',
+    'Роман',
+  ];
 
-  constructor(private auth: AuthService, private bookService: BooksService, private router: Router){
-  }
+  constructor(
+    private auth: AuthService,
+    private bookService: BooksService,
+    private router: Router
+  ) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       coverUrl: new FormControl(),
       tags: new FormControl(),
-      description: new FormControl()
+      description: new FormControl(),
     });
   }
-  onSubmit(){
+  onSubmit() {
     this.form.disable();
 
     const bookData: IBookAdd = {
@@ -35,8 +54,9 @@ export class AddBookPageComponent implements OnInit{
       coverUrl: this.form.value.coverUrl,
       authorId: this.user.id,
       tags: this.form.value.tags,
-      description: this.form.value.description
-    }
+      description: this.form.value.description,
+      date: new Date().toISOString(),
+    };
 
     let token = this.auth.getToken();
 
@@ -47,7 +67,7 @@ export class AddBookPageComponent implements OnInit{
       error: (error) => {
         console.warn(error);
         this.form.enable();
-      }
-    })
+      },
+    });
   }
 }

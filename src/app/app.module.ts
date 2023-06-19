@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +27,7 @@ import { ChapterPageComponent } from './components/chapter-page/chapter-page.com
 import { BookSearchComponent } from './components/book-search/book-search.component';
 import { BookLineComponent } from './components/book-line/book-line.component';
 import { ReviewLineComponent } from './components/review-line/review-line.component';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -48,9 +48,10 @@ import { ReviewLineComponent } from './components/review-line/review-line.compon
     ChapterPageComponent,
     BookSearchComponent,
     BookLineComponent,
-    ReviewLineComponent
+    ReviewLineComponent,
   ],
   imports: [
+    MatProgressSpinnerModule,
     MatPaginatorModule,
     MatSelectModule,
     MatDialogModule,
@@ -61,9 +62,8 @@ import { ReviewLineComponent } from './components/review-line/review-line.compon
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
